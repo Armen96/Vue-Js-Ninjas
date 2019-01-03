@@ -11,10 +11,6 @@
                 </keep-alive>
             </div>
         </div>
-
-        <div class="row">
-            <Blog></Blog>
-        </div>
     </div>
 </template>
 
@@ -23,7 +19,6 @@
     import Footer from './Footer.vue'
     import LoginForm from './forms/LoginForm.vue';
     import RegisterForm from './forms/RegisterForm.vue';
-    import Blog from './Blog.vue';
 
     export default {
         name: 'Home',
@@ -78,7 +73,6 @@
             Footer,
             LoginForm,
             RegisterForm,
-            Blog
         }
     }
 </script>

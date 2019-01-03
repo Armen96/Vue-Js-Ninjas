@@ -8,19 +8,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <router-link to="/" exact>Home</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <router-link to="/persons" exact>Persons</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <router-link to="/about" exact>About</router-link>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact Us</a>
+                    <router-link to="/contact" exact>Contact Us</router-link>
                 </li>
             </ul>
         </div>
@@ -42,5 +39,10 @@
 </script>
 
 <style scoped>
-
+.nav-item{
+    margin-right: 15px;
+}
+.router-link-exact-active{
+    color: rgb(255, 68, 10);
+}
 </style>

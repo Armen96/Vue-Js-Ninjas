@@ -1,15 +1,15 @@
 <template>
     <div class="row col-md-12">
-        <div class="col-md-4">
-            <h1>Blog</h1>
+        <div class="col-md-6 text-center">
+            <h1>Blog {{ blogId }}</h1>
 
             <div id="add-blog">
                 <form>
-                    <label>Blog Title</label>
+                    <label>Person Name</label>
                     <input type="text" class="form-control" placeholder="Title" v-model.lazy="blog.title">
 
-                    <label>Blog Title</label>
-                    <input type="text" class="form-control" placeholder="Description" v-model.lazy="blog.description">
+                    <label>Person Description</label>
+                    <textarea type="text" class="form-control" placeholder="Description" v-model.lazy="blog.description"></textarea>
 
                     <div>
                         <label>Author</label>
@@ -47,10 +47,12 @@
 <script>
     import rainbow from '../mixin/directives';
     export default {
-        name: "Blog",
+        name: "Persons",
         data(){
             return {
                 url:'http://laravel-jwt-react.ec/api',
+                firebase: 'https://vue-js-practice-2019.firebaseio.com/',
+                blogId: this.$route.params.id,
                 blog: {
                     title: '',
                     description: '',
@@ -66,17 +68,14 @@
             }
         },
         created(){
-            this.axios.get(this.url+'/posts').then((data) => {
-                this.posts = data.data.posts.data
+            this.axios.get(this.firebase+'/posts.json').then((data) => {
+                console.log("ddd", data.data);
+                this.posts = data.data
             })
         },
         methods: {
             submitForm(){
-                this.axios.post(this.url+'/posts',{
-                    "userId": this.blog.author,
-                    "title": this.blog.title,
-                    "body": this.blog.description
-                }).then(function(data){
+                this.axios.post(this.firebase+'/posts.json',this.blog).then(function(data){
                     this.submitted = true;
                 })
             }
@@ -86,11 +85,11 @@
 </script>
 
 <style scoped>
-#add-blog{
-    text-align: left;
-}
-#checkbox input{
-    display: inline-block;
-    margin-right: 10px;
-}
+    #add-blog{
+        text-align: left;
+    }
+    #checkbox input{
+        display: inline-block;
+        margin-right: 10px;
+    }
 </style>
