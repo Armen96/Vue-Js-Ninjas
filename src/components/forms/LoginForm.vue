@@ -4,11 +4,11 @@
             <div slot="form-header"></div>
             <div slot="form-content">
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" class="form-control" v-model="user.email" placeholder="Email">
                     <br>
-                    <input type="password" class="form-control" placeholder="Password">
+                    <input type="password" class="form-control" v-model="user.password" placeholder="Password">
                     <br>
-                    <button class="btn form-control btn-success">Login</button>
+                    <button class="btn form-control btn-success" v-on:click.prevent="login">Login</button>
                 </div>
             </div>
             <div slot="form-footer">
@@ -23,12 +23,31 @@
 
     export default {
         name: "LoginForm",
+        data(){
+            return {
+                url:'http://laravel-jwt-react.ec/api',
+                user: {
+                    email: '',
+                    password: ''
+                }
+            }
+        },
         components: {
             FormHelper
         },
         methods:{
+
             redirectTo(path){
                 this.$emit('redirectToEmit',path)
+            },
+
+            login(){
+                this.axios.post(this.url+'/login',{
+                    "email": this.user.email,
+                    "password": this.user.password,
+                }).then(function(data){
+                    //console.log(data)
+                })
             }
         }
 
