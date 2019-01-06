@@ -40,7 +40,7 @@ Vue.component('Header',Header);
 
 Vue.config.productionTip = false;
 
-import { store } from './store/store';
+import { store } from './store/index';
 
 new Vue({
   store: store,

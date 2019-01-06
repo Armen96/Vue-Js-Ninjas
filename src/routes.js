@@ -6,7 +6,7 @@ import Persons from './components/Persons';
 import Vuex from './components/Vuex';
 import PageNotFound from './components/PageNotFound';
 
-import {store} from './store/store'
+import {store} from './store/index'
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
