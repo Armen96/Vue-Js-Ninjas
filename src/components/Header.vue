@@ -19,6 +19,9 @@
                 <li class="nav-item">
                     <router-link to="/contact" exact>Contact Us</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link to="/vuex" exact>Vuex Tests</router-link>
+                </li>
             </ul>
         </div>
     </nav>

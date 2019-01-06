@@ -20,14 +20,8 @@ Vue.use(VueAxios, axios);
 /**
  * Routing
  */
-import Routes from './routes';
-import VueRouter from 'vue-router'
-Vue.use(VueRouter);
+import router from './routes';
 
-const router = new VueRouter({
-  routes: Routes,
-  mode: 'history'
-});
 
 /**
  * Filters
@@ -44,11 +38,14 @@ import Header from './components/Header'
 
 Vue.component('Header',Header);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+
+import { store } from './store/store';
 
 new Vue({
+  store: store,
   render: h => h(App),
   router: router
-}).$mount('#app')
+}).$mount('#app');
 
 

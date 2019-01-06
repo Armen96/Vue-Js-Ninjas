@@ -8,7 +8,6 @@
 
         <div class="row">
             <div class="col-md-12">
-                <h3>{{title}}</h3>
                 <div id="add-blog">
                     <form>
                         <label>Email</label>
@@ -33,7 +32,7 @@
         data(){
             return {
                 title: "Contact Us",
-                description: 'Contact Us'
+                description: 'DirectionX'
             }
         },
         mixins: [rainbow]
