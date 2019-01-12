@@ -34,13 +34,13 @@ Vue.filter('to-uppercase',function(value){
  * Components
  */
 import App from './App.vue'
-import Header from './components/Header'
+import Header from './components/layouts/Header'
 
 Vue.component('Header',Header);
 
 Vue.config.productionTip = false;
 
-import { store } from './store/store';
+import { store } from './store/index';
 
 new Vue({
   store: store,

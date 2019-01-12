@@ -21,7 +21,7 @@
             <br>
             <br>
             <div class="col-md-12">
-                <button class="btn btn-warning" v-on:click="reducePrice">Reduce price</button>
+                <button class="btn btn-warning">Reduce price</button>
             </div>
         </div>
         <hr>
@@ -86,7 +86,7 @@
         },
         methods:{
             ...mapActions([
-                'reducePrice','removeLink'
+                'removeLink'
             ]),
             ...mapMutations([
                 'ADD_LINK'
