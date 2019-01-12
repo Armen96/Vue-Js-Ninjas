@@ -34,7 +34,7 @@ Vue.filter('to-uppercase',function(value){
  * Components
  */
 import App from './App.vue'
-import Header from './components/Header'
+import Header from './components/layouts/Header'
 
 Vue.component('Header',Header);
 

@@ -1,6 +1,4 @@
-/**
- * State
- */
+
 const state = {
     products: [
         {name: 'iPhone X',price: 1100},
@@ -12,13 +10,9 @@ const state = {
         'Google',
         'Facebook',
         'Amazon'
-    ],
-    isLogged: true
+    ]
 };
 
-/**
- * Getters
- */
 const getters = {
     products: (state) => {
         return state.products.map( products => {
@@ -28,14 +22,8 @@ const getters = {
     linksCount: state => {
         return state.links.length
     },
-    isLogged: state => {
-        return state.isLogged
-    }
 };
 
-/**
- * Mutations
- */
 const mutations = {
     ADD_LINK: (state,link) => {
         state.links.push(link)
@@ -48,9 +36,7 @@ const mutations = {
         state.links = []
     }
 };
-/**
- * Actions
- */
+
 const actions = {
     removeLink: (context,link) => {
         context.commit('REMOVE_LINK',link)
@@ -62,7 +48,6 @@ const actions = {
                 commit('REMOVE_ALL')
                 resolve()
             },1500)
-
         })
     }
 };

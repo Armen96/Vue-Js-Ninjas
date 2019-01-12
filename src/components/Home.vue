@@ -16,7 +16,7 @@
 
 <script>
     import Ninja from './Ninja.vue'
-    import Footer from './Footer.vue'
+    import Footer from './layouts/Footer.vue'
     import LoginForm from './forms/LoginForm.vue';
     import RegisterForm from './forms/RegisterForm.vue';
 

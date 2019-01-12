@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <div  class="container">
-      <Header :company="company" @changeCompanyName="changeCompanyName($event)"></Header>
 
+    <Header :company="company" @changeCompanyName="changeCompanyName($event)"></Header>
+
+    <div  class="container">
       <div class="row">
         <router-view></router-view>
       </div>
-
     </div>
 
     <div class="teal-footer">
@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import Footer from './components/Footer.vue'
+import Footer from './components/layouts/Footer.vue'
 
 export default {
   name: 'app',
@@ -42,10 +42,13 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
 }
   .padding-div{
     padding: 25px;
     background: antiquewhite;
+  }
+  .is-active{
+    color: rgb(255, 68, 10);
   }
 </style>
