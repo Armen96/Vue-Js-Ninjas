@@ -8,13 +8,13 @@
                     <router-link to="/" exact>Home</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/persons" exact>Persons</router-link>
+                    <router-link v-if="isLogged" to="/profile" exact>Profile</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link to="/about" exact>About</router-link>
                 </li>
                 <li class="nav-item">
-                    <router-link to="/contact" exact>Contact Us</router-link>
+                    <router-link v-if="isLogged" to="/contact" exact>Contact Us</router-link>
                 </li>
             </ul>
         </div>
@@ -27,10 +27,10 @@
                     <router-link to="/login" exact>Sign In</router-link>
                 </li>
                 <li v-if="!isLogged" class="nav-item">
-                    <router-link to="/persons" exact>Sign Up</router-link>
+                    <router-link to="/register" exact>Sign Up</router-link>
                 </li>
-                <li v-if="isLogged" class="nav-item">
-                    <span>User Name</span>
+                <li v-if="isLogged" class="nav-item margin-top-8">
+                    <span>{{getUser.name}}</span>
                 </li>
                 <li v-if="isLogged" class="nav-item">
                     <button class="btn btn-warning" @click="logout">Sign Out</button>
@@ -52,20 +52,23 @@
         },
         methods:{
             logout(){
-                this.$store.dispatch('LOGOUT').then(function(){
-                    alert("logout")
-                })
+                this.$store.dispatch('LOGOUT').then((res) => {
+                    this.$router.go('/')
+                });
             }
         },
         computed:{
             ...mapGetters([
-                'isLogged'
+                'isLogged','getUser'
             ])
         }
     }
 </script>
 
 <style scoped>
+    .margin-top-8{
+        margin-top: 8px;
+    }
     .nav-item{
         margin-right: 15px;
         padding: 10px 0;

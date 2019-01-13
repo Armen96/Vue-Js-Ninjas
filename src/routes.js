@@ -2,8 +2,9 @@ import Vue from 'vue';
 import Contact from './components/pages/Contact';
 import About from './components/pages/About';
 import Home from './components/Home';
-import Persons from './components/Persons';
+import Profile from './components/pages/Profile';
 import Login from './components/pages/Login';
+import Register from './components/pages/Register';
 import PageNotFound from './components/layouts/PageNotFound';
 
 import {store} from './store/index'
@@ -14,10 +15,12 @@ Vue.use(VueRouter);
 const Routes = [
     {
         path: '/', component: Home,
-        meta: {auth: true}
     },
     {
         path: '/login', component: Login ,
+    },
+    {
+        path: '/register', component: Register ,
     },
     {
         path: '/about', component: About ,
@@ -27,7 +30,7 @@ const Routes = [
         meta: {auth: true}
     },
     {
-        path: '/persons/:id?', component: Persons,
+        path: '/profile', component: Profile,
         meta: {auth: true}
     },
     {
@@ -45,12 +48,20 @@ router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.auth)) {
         if (!store.getters.isLogged) {
             next({
-                path: '/page-not-found',
+                path: '/login',
             });
         } else {
             next();
         }
     } else {
+        if (store.getters.isLogged) {
+            if(to.path === '/login' || to.path === '/register'){
+                next({
+                    path: '/about',
+                });
+            }
+        }
+
         next();
     }
 });

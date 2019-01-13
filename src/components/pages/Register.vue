@@ -1,32 +1,36 @@
 <template>
     <div class="container">
         <div id="LoginForm">
-         <div class="container">
-            <h1 class="form-heading">Login Form</h1>
-            <div class="login-form">
-                <div class="main-div">
-                    <div class="panel">
-                        <h2>Login</h2>
-                        <p>Please enter your email and password</p>
+            <div class="container">
+                <h1 class="form-heading">Register Form</h1>
+                <div class="login-form">
+                    <div class="main-div">
+                        <div class="panel">
+                            <h2>Register</h2>
+                            <p>Please enter your email and password</p>
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputName" placeholder="Name" v-model="user.name">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" v-model="user.email">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Password" v-model="user.password">
+                            </div>
+
+                            <div class="forgot">
+                                <!--<a href="">Forgot password?</a>-->
+                            </div>
+                            <button type="submit" class="btn btn-primary" v-on:click.prevent="register">Register</button>
+                        </form>
                     </div>
-                    <form>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" v-model="user.email">
-                        </div>
-
-                        <div class="form-group">
-                            <input type="password" class="form-control" id="inputPassword" placeholder="Password" v-model="user.password">
-                        </div>
-
-                        <div class="forgot">
-                            <!--<a href="">Forgot password?</a>-->
-                        </div>
-                        <button type="submit" class="btn btn-primary" v-on:click.prevent="login">Login</button>
-                    </form>
+                    <p class="botto-text"> Designed by Sunil Rajput</p>
                 </div>
-                <p class="botto-text"> Designed by Sunil Rajput</p>
             </div>
-         </div>
         </div>
     </div>
 </template>
@@ -34,10 +38,11 @@
 <script>
     import { mapGetters } from 'vuex'
     export default {
-        name: "Login",
+        name: "Register",
         data(){
             return {
                 user:{
+                    name: '',
                     email: '',
                     password: ''
                 }
@@ -45,12 +50,12 @@
         },
         computed: {
             ...mapGetters([
-                'getUser'
+                'getUser','getToken'
             ])
         },
         methods: {
-            login(){
-                this.$store.dispatch('SIGN_IN',this.user).then((res) => {
+            register(){
+                this.$store.dispatch('SIGN_UP',this.user).then((res) => {
                     this.$router.push('/')
                 })
             }
