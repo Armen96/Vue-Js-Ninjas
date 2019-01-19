@@ -53,12 +53,12 @@
                 </div>
                 <div class="col-md-6">
                     <ul class="bottom_ul">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">About us</a></li>
-                        <li><a href="">Blog</a></li>
-                        <li><a href="">Faq's</a></li>
-                        <li><a href="">Contact us</a></li>
-                        <li><a href="">Site Map</a></li>
+                        <!--<li><a href="">Home</a></li>-->
+                        <!--<li><a href="">About us</a></li>-->
+                        <!--<li><a href="">Blog</a></li>-->
+                        <!--<li><a href="">Faq's</a></li>-->
+                        <!--<li><a href="">Contact us</a></li>-->
+                        <!--<li><a href="">Site Map</a></li>-->
                     </ul>
                 </div>
 

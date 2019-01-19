@@ -6,12 +6,12 @@
                 <div class="login-form">
                     <div class="main-div">
                         <div class="panel">
-                            <h2>Register</h2>
+                            <h2>Register Ninja</h2>
                             <p>Please enter your email and password</p>
                         </div>
                         <form>
                             <div class="form-group">
-                                <input type="text" class="form-control" id="inputName" placeholder="Name" v-model="user.name">
+                                <input type="text" class="form-control" id="inputName" placeholder="Your Name" v-model="user.name">
                             </div>
 
                             <div class="form-group">

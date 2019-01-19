@@ -11,6 +11,9 @@
                     <router-link v-if="isLogged" to="/profile" exact>Profile</router-link>
                 </li>
                 <li class="nav-item">
+                    <router-link v-if="isLogged" to="/clans" exact>Clans</router-link>
+                </li>
+                <li class="nav-item">
                     <router-link to="/about" exact>About</router-link>
                 </li>
                 <li class="nav-item">
