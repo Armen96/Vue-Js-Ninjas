@@ -4,19 +4,20 @@
         <p class="lead grey-text w-responsive mx-auto mb-5">{{clansState.clan_description}}</p>
 
         <div class="row">
-            <div v-for="(clan,index) in clans" v-bind:key="index" class="col-sm-4 col-md-3">
+            <div v-for="(member,index) in members" v-bind:key="index" class="col-sm-4 col-md-3">
                 <div class="thumbnail" >
-                    <img :src="clan.logo" class="img-responsive">
-                    <div class="caption">
-                        <div class="row"></div>
-                        <br>
-                        <div class="row">
-                            <div class="col-md-12">
+                    {{member.name}}
+                    <!--<img :src="clan.logo" class="img-responsive">-->
+                    <!--<div class="caption">-->
+                        <!--<div class="row"></div>-->
+                        <!--<br>-->
+                        <!--<div class="row">-->
+                            <!--<div class="col-md-12">-->
 
-                                <router-link :to='clansPath+clan.id' class="btn btn-primary btn-product" exact><span class="glyphicon glyphicon-thumbs-up"></span> See {{clan.name}} Members</router-link>
-                            </div>
-                        </div>
-                    </div>
+                                <!--<router-link :to='clansPath+clan.id' class="btn btn-primary btn-product" exact><span class="glyphicon glyphicon-thumbs-up"></span> See {{clan.name}} Members</router-link>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -24,26 +25,30 @@
 </template>
 
 <script>
-    import { mapGetters,mapState } from 'vuex'
+    import { mapGetters,mapState,mapMutations } from 'vuex'
     export default {
         name: "ClansChild",
         data(){
             return {
-                clans: {},
+                members: {},
                 clansPath: '/clans/'
             }
         },
         methods:{
             ...mapGetters([
-                'getClans'
-            ])
+                'getClans','getClanMembers'
+            ]),
+            ...mapMutations([
+                'GET_CLAN_MEMBERS'
+            ]),
+
         },
-        async created (){
-            await this.getClans()
-                .then(response => response.data)
-                .then(data => {
-                    this.clans = data.data;
-                });
+        mounted (){
+            console.log(this.GET_CLAN_MEMBERS(this.$route.params.id));
+                // .then(response => response.data)
+                // .then(data => {
+                //     this.members = data.data;
+                // });
         },
         computed:{
             ...mapState({
@@ -63,6 +68,7 @@
     .img-responsive{
         width: 100%;
         height: auto;
+        max-height: 260px;
     }
 </style>
 

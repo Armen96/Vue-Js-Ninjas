@@ -63,5 +63,6 @@
     .img-responsive{
         width: 100%;
         height: auto;
+        max-height: 260px;
     }
 </style>
