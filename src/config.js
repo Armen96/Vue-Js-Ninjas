@@ -1,3 +1,3 @@
 export default {
-    api: 'http://laravel-jwt-react.ec/api/'
+    api: 'http://ninjas-api.ec/api/'
 }

@@ -43,12 +43,10 @@
             ]),
 
         },
-        mounted (){
-            console.log(this.GET_CLAN_MEMBERS(this.$route.params.id));
-                // .then(response => response.data)
-                // .then(data => {
-                //     this.members = data.data;
-                // });
+        created (){
+             this.$store.dispatch('GET_CLAN_MEMBERS',this.$route.params.id).then((result) => {
+                this.members = result.data.data;
+            })
         },
         computed:{
             ...mapState({

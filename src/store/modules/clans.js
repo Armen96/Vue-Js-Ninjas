@@ -17,7 +17,6 @@ const getters = {
         return await axios.post(config.api + 'clans',{token})
     },
     getClanTitle: state => {
-        console.log(state.clans)
         return state.clans
     },
     getClanMembers: async (state,id) => {
@@ -27,14 +26,24 @@ const getters = {
 };
 
 const mutations = {
+
+};
+
+const actions = {
     async GET_CLAN_MEMBERS({commit},id){
         let token = users.getters.getToken;
         return await axios.post(config.api + 'clans/' + id,{token})
     },
-};
 
-const actions = {
+    async UPLOAD_IMAGE({commit},formData){
+        let options = {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            }
+        };
 
+        return await axios.post( config.api +'upload-file',formData,options)
+    }
 };
 
 export default{

@@ -20,7 +20,7 @@ Vue.use(VueAxios, axios);
 /**
  * Routing
  */
-import router from './routes';
+import router from './route/routes';
 
 
 /**

@@ -1,15 +1,15 @@
 import Vue from 'vue';
-import Contact from './components/pages/Contact';
-import About from './components/pages/About';
-import Home from './components/pages/Home';
-import Clans from './components/pages/Clans';
-import ClansChild from './components/pages/ClansChild';
-import Profile from './components/pages/Profile';
-import Login from './components/pages/Login';
-import Register from './components/pages/Register';
-import PageNotFound from './components/layouts/PageNotFound';
+import Contact from '../components/pages/Contact';
+import About from '../components/pages/About';
+import Home from '../components/pages/Home';
+import Clans from '../components/pages/Clans';
+import ClansChild from '../components/pages/ClansChild';
+import Profile from '../components/pages/Profile';
+import Login from '../components/pages/Login';
+import Register from '../components/pages/Register';
+import PageNotFound from '../components/layouts/PageNotFound';
 
-import {store} from './store/index'
+import {store} from '../store'
 
 import VueRouter from 'vue-router'
 Vue.use(VueRouter);
