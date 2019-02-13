@@ -16,18 +16,27 @@
                     </div>
                 </div>
             </div>
+            <div>
+                <ul>
+                    <li v-for="item in usersall">
+                        <p>** {{item.name}}</p>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
     import { mapGetters,mapState } from 'vuex';
+    import gql from 'graphql-tag'
 
     export default {
         name: 'Home',
         data(){
             return {
-                clans: {}
+                clans: {},
+                usersall: []
             }
         },
         methods:{
@@ -46,7 +55,17 @@
                 .then(data => {
                     this.clans = data.data;
                 });
-        }
+        },
+        apollo: {
+            usersall: gql`
+            {
+                usersall {
+                    name
+                    email
+                }
+            }
+            `,
+        },
     }
 </script>
 

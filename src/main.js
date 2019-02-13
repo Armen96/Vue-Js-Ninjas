@@ -41,11 +41,13 @@ Vue.component('Header',Header);
 Vue.config.productionTip = false;
 
 import { store } from './store/index';
+import { createProvider } from './vue-apollo'
 
 new Vue({
-  store: store,
-  render: h => h(App),
-  router: router
+ store: store,
+ render: h => h(App),
+ apolloProvider: createProvider(),
+ router: router
 }).$mount('#app');
 
 
