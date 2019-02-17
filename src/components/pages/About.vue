@@ -1,15 +1,34 @@
 <template>
-    <section class="text-center my-5 ">
+    <section class="text-center my-5">
         <div class="about-section paddingTB60 gray-bg">
             <div class="container">
                 <div class="row margin-auto">
                     <div class="margin-auto">
                         <div class="col-md-8 offset-md-2">
                             <div class="about-title clearfix">
-                                <h1>About <span>Appmom</span></h1>
-                                <h3>Lorem ipsum dolor sit amet </h3>
-                                <p class="about-paddingB">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec aliquet dolor libero, eget venenatis mauris finibus dictum. Vestibulum quis elit eget neque porttitor congue non sit amet dolor. Proin pretium purus a lorem ornare </p>
-                                <p>sed lobortis pulvinar. Integer laoreet mi id eros porta euismod. Suspendisse potenti. Nulla eros mauris, convallis et sem tempus, viverra hendrerit sapien</p>
+                                <h1>About <span> Bookami</span></h1>
+                                <br>
+                                <p class="about-paddingB">
+                                    Books.am is the first and largest online bookstore in Armenia.
+                                    It presents the whole range of "Bookami" bookstores network on the online platform and considers the distribution of Armenian and foreign language in Armenia and beyond its borders.
+                                </p>
+                                <p>
+                                    Establishment:
+                                    "Bookami" bookstore was founded in 1932.
+                                    1997 Specialized Bookcovering Bookshop №26 has been transformed by Buccinim LLC Khachik Vardanyan. In a short period of time the company has become the leader in import and sales of educational, scientific and other literature in Armenia.
+                                    It cooperates with the leading publishing houses of the Republic of Armenia, the United States of America, France, Great Britain, Lebanon, Ukraine, Belarus and Poland.
+                                </p>
+                                <p>
+                                    Assortment
+                                    The "Bookami" bookstores network publishes and publishes in Armenia all the books available in the Armenian market, as well as translated and original, in foreign, Armenian, Russian, English and other languages.
+                                    There are also original, old books, stationery, developing games, didactic materials, postcards, maps, and more.
+                                </p>
+
+                                <p>
+                                    Publications:
+                                    In addition to being a bookshop, "Bukinist" company also carries out publishing activities.
+                                    She has published more than 500 titles of books, joint publishing projects with the UK, Belgium and Russia, leading Polish publishing houses.
+                                </p>
                                 <div class="about-icons"></div>
                             </div>
                         </div>

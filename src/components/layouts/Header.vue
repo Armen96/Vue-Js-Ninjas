@@ -5,7 +5,7 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <router-link to="/" exact>Home</router-link>
+                    <router-link to="/" exact>Bookami</router-link>
                 </li>
                 <li class="nav-item">
                     <router-link v-if="isLogged" to="/profile" exact>Profile</router-link>
@@ -54,10 +54,9 @@
             }
         },
         methods:{
-            logout(){
-                this.$store.dispatch('LOGOUT').then((res) => {
-                    this.$router.go('/')
-                });
+            async logout(){
+                await this.$store.dispatch('LOGOUT')
+                this.$router.go('/');
             }
         },
         computed:{

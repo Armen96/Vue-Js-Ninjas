@@ -1,6 +1,6 @@
 import config from '../../config'
 import axios from 'axios'
-import users from './users';
+import users from './user/store';
 
 const state = {
     clans: {},
@@ -47,6 +47,7 @@ const actions = {
 };
 
 export default{
+    // namespaced:true,
     state,
     actions,
     mutations,

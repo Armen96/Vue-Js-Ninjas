@@ -1,71 +1,70 @@
 <template>
-
     <div class="padding-more">
-        <h2 class="h1-responsive h1-custom-class font-weight-bold my-5">{{clansState.clan_title}}</h2>
-        <p class="lead grey-text w-responsive mx-auto mb-5">{{clansState.clan_description}}</p>
-        <div class="row">
-            <div v-for="(ninja,index) in clans" v-bind:key="index" class="col-sm-4 col-md-3">
-                <div class="thumbnail" >
-                    <img :src="ninja.logo" class="img-responsive">
-                    <div class="caption">
-                        <div class="row">
-                            <div class="col-md-12 col-xs-12">
-                                <h4 class="text-center"><span class="label label-info">{{ninja.name}}</span></h4>
-                            </div>
+        <section class="bg-light" id="portfolio">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="section-heading text-uppercase">{{booksState.books_title}}</h2>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div v-for="(book,index) in books" :key="index" class="col-md-3 col-sm-4 portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                            <img class="img-fluid img-fluid-books" :src="book.image" alt="">
+                        </a>
+                        <div class="portfolio-caption">
+                            <h4>{{book.title }}</h4>
                         </div>
                     </div>
                 </div>
             </div>
-            <div>
-                <ul>
-                    <li v-for="item in usersall">
-                        <p>** {{item.name}}</p>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        </section>
     </div>
 </template>
 
 <script>
     import { mapGetters,mapState } from 'vuex';
-    import gql from 'graphql-tag'
+    // import gql from 'graphql-tag'
 
     export default {
         name: 'Home',
         data(){
             return {
-                clans: {},
-                usersall: []
+                books: null
+                // usersall: []
             }
         },
         methods:{
             ...mapGetters([
-                'getClans','getClanTitle'
+                'getClans','getClanTitle','getAllBooksDispatch'
             ])
         },
         computed:{
             ...mapState({
-                'clansState': 'clans'
+                'booksState': 'books'
             }),
         },
-        async created (){
-            await this.getClans()
-                .then(response => response.data)
-                .then(data => {
-                    this.clans = data.data;
-                });
-        },
-        apollo: {
-            usersall: gql`
-            {
-                usersall {
-                    name
-                    email
-                }
+
+        async created() {
+            this.books = this.getAllBooksDispatch();
+
+            if (!this.books){
+                await this.$store.dispatch('GET_BOOKS');
+                this.books = this.getAllBooksDispatch();
             }
-            `,
         },
+
+        // apollo: {
+        //     usersall: gql`
+        //     {
+        //         usersall {
+        //             name
+        //             email
+        //         }
+        //     }
+        //     `,
+        // },
     }
 </script>
 
@@ -87,5 +86,9 @@
     }
     .padding-more{
         padding: 30px 0;
+    }
+    .img-fluid-books{
+        width: 100%;
+        height: 350px;
     }
 </style>

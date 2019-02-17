@@ -1,7 +1,7 @@
-import config from '../../config'
+import config from '../../../config'
 import axios from 'axios'
 
-const state = {
+const initialState = {
     token: sessionStorage.getItem('token') || '',
     user: JSON.parse(sessionStorage.getItem('user')) || {},
 };
@@ -61,7 +61,7 @@ const actions = {
                 email,
                 password,
             }).then(({data}) => {
-                console.log(data)
+
                 if (data) {
                     commit('SIGN_IN', {user: data.user, token: data.token})
                     resolve()
@@ -94,7 +94,7 @@ const actions = {
 };
 
 export default{
-    state,
+    state:initialState,
     actions,
     mutations,
     getters
