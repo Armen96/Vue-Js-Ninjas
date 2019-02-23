@@ -1,7 +1,9 @@
-import config from '../../../config'
 import { SET_BOOKS } from './mutation-types'
-import axios from 'axios'
-import users from "../user/store";
+
+import {
+    getBooks
+} from '../../../api';
+
 
 const initialState = {
     books: null,
@@ -16,19 +18,14 @@ const getters = {
 
 const mutations = {
     [SET_BOOKS](state,{data}) {
-        state.books = data.data;
+        state.books = data;
     },
 };
 
 const actions = {
     GET_BOOKS: async ({ commit }) => {
-        let token = users.getters.getToken;
-        await axios.get(config.api + 'books', {token})
-            .then(({data}) => {
-                if (data) {
-                    commit('SET_BOOKS', {data: data})
-                }
-            })
+        const data = await getBooks();
+        commit('SET_BOOKS', {data: data});
     },
 };
 

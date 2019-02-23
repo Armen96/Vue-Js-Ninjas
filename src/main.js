@@ -13,14 +13,15 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
  */
 // import VueResource from 'vue-resource'
 // Vue.use(VueResource);
-import axios from 'axios'
-import VueAxios from 'vue-axios'
-Vue.use(VueAxios, axios);
+
+// import axios from 'axios'
+// import VueAxios from 'vue-axios'
+// Vue.use(VueAxios, axios);
 
 /**
  * Routing
  */
-import router from './route/routes';
+import router from './route/router';
 
 
 /**
@@ -41,12 +42,12 @@ Vue.component('Header',Header);
 Vue.config.productionTip = false;
 
 import { store } from './store/index';
-import { createProvider } from './vue-apollo'
+// import { createProvider } from './vue-apollo'
 
 new Vue({
  store: store,
  render: h => h(App),
- apolloProvider: createProvider(),
+ // apolloProvider: createProvider(),
  router: router
 }).$mount('#app');
 

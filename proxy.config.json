@@ -1,0 +1,8 @@
+{
+    "/api/*":{
+    "target": "http://ninjas-api.ec",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin":true
+    }
+}

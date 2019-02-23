@@ -1,9 +1,10 @@
-import config from '../../../config'
+import config from '../../../config/config'
 import axios from 'axios'
+import { setLocalStorage, getLocalStorage, clearLocalStorage } from '../../../utils/localStorage'
 
 const initialState = {
-    token: sessionStorage.getItem('token') || '',
-    user: JSON.parse(sessionStorage.getItem('user')) || {},
+    token: getLocalStorage('token') || '',
+    user: JSON.parse(getLocalStorage('user')) || {},
 };
 
 const getters = {
@@ -22,26 +23,25 @@ const mutations = {
     LOGOUT: (state) => {
         state.user = ''
         state.token = {}
-        sessionStorage.clear()
+        clearLocalStorage();
     },
     SIGN_IN: (state,{user,token}) => {
         state.user = user
         state.token = token
-        sessionStorage.setItem('token', token)
-        sessionStorage.setItem('user', JSON.stringify(user))
-
+        setLocalStorage('token',token)
+        setLocalStorage('user',JSON.stringify(user))
     },
     SIGN_UP: (state,{user,token}) => {
         state.user = user
         state.token = token
-        sessionStorage.setItem('token', token)
-        sessionStorage.setItem('user', JSON.stringify(user))
+        setLocalStorage('token',token)
+        setLocalStorage('user',JSON.stringify(user))
     }
 };
 
 const actions = {
     LOGOUT({commit}){
-        let token = sessionStorage.getItem('token')
+        let token = getLocalStorage('token')
         return new Promise((resolve,reject) => {
             axios.post(config.api + 'logout',{
                 token
