@@ -55,7 +55,7 @@
         },
         methods:{
             async logout(){
-                await this.$store.dispatch('LOGOUT')
+                await this.$store.dispatch('LOGOUT');
                 this.$router.go('/');
             }
         },

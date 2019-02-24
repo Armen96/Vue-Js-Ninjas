@@ -1,10 +1,12 @@
 import { getLocalStorage } from './localStorage'
 
 export const checkAuthentication = (router) => {
-    let isLoggedToken = getLocalStorage('token')
+    let isLoggedToken = getLocalStorage('token');
+    let isLoggedTokenBoolean = !!isLoggedToken;
+
     router.beforeEach((to, from, next) => {
         if (to.matched.some(record => record.meta.auth)) {
-            if (!isLoggedToken) {
+            if (!isLoggedTokenBoolean) {
                 next({
                     path: '/login',
                 });
@@ -12,7 +14,7 @@ export const checkAuthentication = (router) => {
                 next();
             }
         } else {
-            if (isLoggedToken) {
+            if (isLoggedTokenBoolean) {
                 if(to.path === '/login' || to.path === '/register'){
                     next({
                         path: '/about',
@@ -23,4 +25,4 @@ export const checkAuthentication = (router) => {
             next();
         }
     });
-}
+};

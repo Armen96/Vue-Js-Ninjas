@@ -25,10 +25,9 @@ const mutations = {
 const actions = {
     GET_BOOKS: async ({ commit }) => {
         const data = await getBooks();
-        commit('SET_BOOKS', {data: data});
+        commit('SET_BOOKS', {data: data.data});
     },
 };
-
 
 export default {
     state: initialState,

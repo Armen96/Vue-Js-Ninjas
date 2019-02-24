@@ -8,10 +8,15 @@
                     <div class="panel">
                         <h2>Login</h2>
                         <p>Please enter your email and password</p>
+                        <p>
+                            Test user example<br>
+                            test@gmail.com <br>
+                            secret
+                        </p>
                     </div>
                     <form>
                         <div class="form-group">
-                            <input type="email" class="form-control" id="inputEmail" placeholder="Email Address" v-model="user.email">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email Address"  autocomplete="true" v-model="user.email">
                         </div>
 
                         <div class="form-group">
@@ -50,8 +55,8 @@
         },
         methods: {
             login(){
-                this.$store.dispatch('SIGN_IN',this.user).then((res) => {
-                    this.$router.push('/')
+                this.$store.dispatch('SIGN_IN',this.user).then(() => {
+                    this.$router.go('/')
                 })
             }
         }
@@ -77,7 +82,7 @@
         background: #ffffff none repeat scroll 0 0;
         border-radius: 2px;
         margin: 10px auto 30px;
-        max-width: 38%;
+        max-width: 50%;
         padding: 50px 70px 70px 71px;
     }
 

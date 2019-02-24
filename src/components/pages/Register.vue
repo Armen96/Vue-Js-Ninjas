@@ -55,8 +55,8 @@
         },
         methods: {
             register(){
-                this.$store.dispatch('SIGN_UP',this.user).then((res) => {
-                    this.$router.push('/')
+                this.$store.dispatch('SIGN_UP',this.user).then(() => {
+                    this.$router.go('/')
                 })
             }
         }
@@ -82,7 +82,7 @@
         background: #ffffff none repeat scroll 0 0;
         border-radius: 2px;
         margin: 10px auto 30px;
-        max-width: 38%;
+        max-width: 50%;
         padding: 50px 70px 70px 71px;
     }
 

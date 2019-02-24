@@ -5,6 +5,7 @@ import { API_ROOT } from '../config/env'
 import { getLocalStorage } from './localStorage'
 
 let isLoggedToken = getLocalStorage('token');
+let isLoggedTokenBoolean = !!isLoggedToken;
 
 Vue.use(VueAxios, axios.create({
     // baseURL: API_ROOT,
@@ -13,13 +14,13 @@ Vue.use(VueAxios, axios.create({
 
 // Vue.axios.defaults.baseURL = API_ROOT;
 
-const success = (resolve, response) => resolve(response.data.data);
+const success = (resolve, response) => resolve(response.data);
 const error = (reject, err) => reject(err);
 
-const request = (method, url, data, config) => new Promise((resolve, reject) => {
+const request = (method, url, data, config = {}) => new Promise((resolve, reject) => {
     if (!(['get', 'post', 'put', 'patch', 'delete'].includes(method))) throw new Error(`Http method ${method} does not supported`);
 
-    if(isLoggedToken){
+    if(isLoggedTokenBoolean){
         config['token'] = isLoggedToken;
     }
 
