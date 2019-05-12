@@ -3,26 +3,26 @@
         <div class="contact-image">
             <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
         </div>
-        <form method="post">
+        <form>
             <h3>Drop Us a Message</h3>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
+                        <input type="text" class="form-control" placeholder="Your Name *" v-model="message.name" />
                     </div>
                     <div class="form-group">
-                        <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                        <input type="text" class="form-control" placeholder="Your Email *" v-model="message.email" />
                     </div>
                     <div class="form-group">
-                        <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
+                        <input type="text" class="form-control" placeholder="Your Phone Number *" v-model="message.phone" />
                     </div>
                     <div class="form-group">
-                        <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+                        <input type="submit" class="btnContact" value="Send Message" v-on:click.prevent="contactUs"/>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                        <textarea name="txtMsg" class="form-control" placeholder="Your Message *" v-model="message.message" style="width: 100%; height: 150px;"></textarea>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,20 @@
         data(){
             return {
                 title: "Contact Us",
-                description: 'DirectionX'
+                description: 'DirectionX',
+                message: {
+                    name: '',
+                    email:'',
+                    phone:'',
+                    message: ''
+                }
+            }
+        },
+        methods:{
+            contactUs(){
+                this.$store.dispatch('CONTACT_US',this.message).then(() => {
+                    alert('a');
+                })
             }
         },
         mixins: [rainbow]

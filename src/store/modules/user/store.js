@@ -1,5 +1,5 @@
 import { setLocalStorage, getLocalStorage, clearLocalStorage } from '../../../utils/localStorage'
-import { logout, login, register } from '../../../api'
+import { logout, login, register, contactUs } from '../../../api'
 
 const initialState = {
     token: getLocalStorage('token') || '',
@@ -35,6 +35,9 @@ const mutations = {
         state.token = token;
         setLocalStorage('token',token);
         setLocalStorage('user',JSON.stringify(user));
+    },
+    CONTACT_US_MUTATION: () => {
+        // console.log("Okay");
     }
 };
 
@@ -56,6 +59,13 @@ const actions = {
 
         if (data) {
             commit('SIGN_UP', { user: data.user, token: data.token })
+        }
+    },
+    CONTACT_US: async ({commit},data) => {
+        let response = await contactUs(data);
+
+        if (response) {
+            commit('CONTACT_US_MUTATION')
         }
     }
 };

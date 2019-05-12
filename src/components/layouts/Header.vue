@@ -5,14 +5,14 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <router-link to="/" exact>Bookami</router-link>
+                    <router-link to="/" exact>Reportiks</router-link>
                 </li>
-                <li class="nav-item">
-                    <router-link v-if="isLogged" to="/profile" exact>Profile</router-link>
-                </li>
-                <li class="nav-item">
-                    <router-link v-if="isLogged" to="/clans" exact>Clans</router-link>
-                </li>
+                <!--<li class="nav-item">-->
+                    <!--<router-link v-if="isLogged" to="/profile" exact>Profile</router-link>-->
+                <!--</li>-->
+                <!--<li class="nav-item">-->
+                    <!--<router-link v-if="isLogged" to="/clans" exact>Clans</router-link>-->
+                <!--</li>-->
                 <li class="nav-item">
                     <router-link to="/about" exact>About</router-link>
                 </li>

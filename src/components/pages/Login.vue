@@ -10,8 +10,8 @@
                         <p>Please enter your email and password</p>
                         <p>
                             Test user example<br>
-                            test@gmail.com <br>
-                            secret
+                            asd@asd.com <br>
+                            asdasd
                         </p>
                     </div>
                     <form>

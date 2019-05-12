@@ -4,19 +4,19 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2 class="section-heading text-uppercase">{{booksState.books_title}}</h2>
+                        <h2 class="section-heading text-uppercase">Main</h2>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div v-for="(book,index) in books" :key="index" class="col-md-3 col-sm-4 portfolio-item">
-                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-                            <img class="img-fluid img-fluid-books" :src="book.image" alt="">
-                        </a>
-                        <div class="portfolio-caption">
-                            <h4>{{book.title }}</h4>
-                        </div>
-                    </div>
+                    <!--<div v-for="(book,index) in books" :key="index" class="col-md-3 col-sm-4 portfolio-item">-->
+                        <!--<a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">-->
+                            <!--<img class="img-fluid img-fluid-books" :src="book.image" alt="">-->
+                        <!--</a>-->
+                        <!--<div class="portfolio-caption">-->
+                            <!--<h4>{{book.title }}</h4>-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </div>
             </div>
         </section>
@@ -47,24 +47,13 @@
         },
 
         async created() {
-            this.books = this.getAllBooksDispatch();
-
-            if (!this.books){
-                await this.$store.dispatch('GET_BOOKS');
-                this.books = this.getAllBooksDispatch();
-            }
+            // this.books = this.getAllBooksDispatch();
+            //
+            // if (!this.books){
+            //     await this.$store.dispatch('GET_BOOKS');
+            //     this.books = this.getAllBooksDispatch();
+            // }
         },
-
-        // apollo: {
-        //     usersall: gql`
-        //     {
-        //         usersall {
-        //             name
-        //             email
-        //         }
-        //     }
-        //     `,
-        // },
     }
 </script>
 

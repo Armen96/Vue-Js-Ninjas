@@ -6,10 +6,10 @@
                     <div class="margin-auto">
                         <div class="col-md-8 offset-md-2">
                             <div class="about-title clearfix">
-                                <h1>About <span> Bookami</span></h1>
+                                <h1>About <span> Reportiks</span></h1>
                                 <br>
                                 <p class="about-paddingB">
-                                    Books.am is the first and largest online bookstore in Armenia.
+                                    reportiks.am is the first and largest online bookstore in Armenia.
                                     It presents the whole range of "Bookami" bookstores network on the online platform and considers the distribution of Armenian and foreign language in Armenia and beyond its borders.
                                 </p>
                                 <p>

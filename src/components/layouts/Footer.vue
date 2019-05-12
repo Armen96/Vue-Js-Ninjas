@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-4 col-sm-6 footerleft ">
                     <div class="logofooter">
-                        <img src="../../assets/bookami.png" width="200" alt="">
+                        <img src="../../assets/reporteriks/logo.png" width="200" alt="">
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6 paddingtop-bottom">

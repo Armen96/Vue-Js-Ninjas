@@ -11,3 +11,15 @@ export const logout = (data) => _post('logout',data);
 /*-------------- Books ---------------*/
 
 export const getBooks = () => _get('books');
+
+
+
+/*-------------- Contact Us ---------------*/
+
+
+export const contactUs = (data) => _post('contact-us',data);
+
+
+
+
+
