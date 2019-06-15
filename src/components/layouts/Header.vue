@@ -10,9 +10,9 @@
                 <!--<li class="nav-item">-->
                     <!--<router-link v-if="isLogged" to="/profile" exact>Profile</router-link>-->
                 <!--</li>-->
-                <!--<li class="nav-item">-->
-                    <!--<router-link v-if="isLogged" to="/clans" exact>Clans</router-link>-->
-                <!--</li>-->
+                <li class="nav-item">
+                    <router-link v-if="isLogged" to="/dashboard" exact>Dashboard</router-link>
+                </li>
                 <li class="nav-item">
                     <router-link to="/about" exact>About</router-link>
                 </li>
@@ -29,8 +29,8 @@
                 <li v-if="!isLogged" class="nav-item active">
                     <router-link to="/login" exact>Sign In</router-link>
                 </li>
-                <li v-if="!isLogged" class="nav-item">
-                    <router-link to="/register" exact>Sign Up</router-link>
+                <li v-if="!isLogged" class="btn-create-workspaces nav-item">
+                    <router-link to="/register" class="btn-create-workspaces-a" exact>Create workspace</router-link>
                 </li>
                 <li v-if="isLogged" class="nav-item margin-top-8">
                     <span>{{getUser.name}}</span>
@@ -90,5 +90,10 @@
     }
     .nav-item a:hover{
         color: #fff;
+    }
+    .btn-create-workspaces{
+        background: #ecb22e;
+        border-radius: 4px;
+        padding: 10px;
     }
 </style>

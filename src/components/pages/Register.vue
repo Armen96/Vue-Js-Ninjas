@@ -6,12 +6,15 @@
                 <div class="login-form">
                     <div class="main-div">
                         <div class="panel">
-                            <h2>Register Ninja</h2>
-                            <p>Please enter your email and password</p>
+                            <h2>Create a new workspace</h2>
                         </div>
                         <form>
                             <div class="form-group">
                                 <input type="text" class="form-control" id="inputName" placeholder="Your Name" v-model="user.name">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="inputCompany" placeholder="Company Name" v-model="user.company">
                             </div>
 
                             <div class="form-group">
@@ -43,6 +46,7 @@
             return {
                 user:{
                     name: '',
+                    company: '',
                     email: '',
                     password: ''
                 }

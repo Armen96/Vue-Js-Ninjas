@@ -54,8 +54,8 @@ const actions = {
             commit('SIGN_IN', {user: data.user, token: data.token})
         }
     },
-    SIGN_UP: async ({commit},{name,email,password}) => {
-        let data = await register({name, email, password});
+    SIGN_UP: async ({commit},{name,company,email,password}) => {
+        let data = await register({name,company, email, password});
 
         if (data) {
             commit('SIGN_UP', { user: data.user, token: data.token })

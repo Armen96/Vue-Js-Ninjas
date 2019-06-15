@@ -1,8 +1,7 @@
 import Contact from '../components/pages/Contact';
 import About from '../components/pages/About';
 import Home from '../components/pages/Home';
-import Clans from '../components/pages/Clans';
-import ClansChild from '../components/pages/ClansChild';
+import Dashboard from '../components/pages/Dashboard';
 import Profile from '../components/pages/Profile';
 import Login from '../components/pages/Login';
 import Register from '../components/pages/Register';
@@ -26,11 +25,7 @@ export const routes = [
         meta: {auth: true}
     },
     {
-        path: '/clans', component: Clans,
-        meta: {auth: true},
-    },
-    {
-        path: '/clans/:id', component: ClansChild,
+        path: '/dashboard', component: Dashboard,
         meta: {auth: true},
     },
     {
