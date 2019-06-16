@@ -8,6 +8,12 @@
                     <li class="list-group-item">Users</li>
                     <li class="list-group-item">Reports</li>
                 </ul>
+
+                <ul class="list-group">
+                    <li v-for="user in users">
+                        {{ user | fullName}}
+                    </li>
+                </ul>
         </div>
 
     </div>
@@ -17,7 +23,26 @@
 
 <script>
     export default {
-        name: "Dashboard"
+        name: "Dashboard",
+        data(){
+            return {
+                users: [
+                    {
+                        name: 'Armen',
+                        lastname: 'Barsegyan'
+                    },
+                    {
+                        name: 'Marco',
+                        lastname: 'Ginolfi'
+                    }
+                ]
+            }
+        },
+        filters:{
+            fullName (value) {
+                return `${value.name}, ${value.lastname}`
+            }
+        }
     }
 </script>
 

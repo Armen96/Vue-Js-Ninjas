@@ -6,7 +6,7 @@
             </div>
             <div class="col-md-6 details">
                 <blockquote>
-                    <h5>{{getUser.name}}</h5>
+                    <h5> ** {{getUser.name}}</h5>
                     <small><cite title="Source Title">Chicago, United States of America  <i class="icon-map-marker"></i></cite></small>
                 </blockquote>
                 <p>

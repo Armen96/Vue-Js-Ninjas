@@ -51,14 +51,14 @@ const actions = {
         let data = await login({email, password,});
 
         if (data) {
-            commit('SIGN_IN', {user: data.user, token: data.token})
+            commit('SIGN_IN', {user: data.user[0], token: data.token})
         }
     },
     SIGN_UP: async ({commit},{name,company,email,password}) => {
         let data = await register({name,company, email, password});
 
         if (data) {
-            commit('SIGN_UP', { user: data.user, token: data.token })
+            commit('SIGN_UP', { user: data.user[0], token: data.token })
         }
     },
     CONTACT_US: async ({commit},data) => {
