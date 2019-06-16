@@ -14,6 +14,7 @@
                     <router-link v-if="isLogged" to="/dashboard" exact>Dashboard</router-link>
                 </li>
                 <li class="nav-item">
+                    
                   <router-link v-if="isLogged" to="/company">Company</router-link>
                 </li>
                 <li class="nav-item">
