@@ -21,6 +21,7 @@
                     <router-link to="/about" exact>About</router-link>
                 </li>
                 <li class="nav-item">
+                    
                     <router-link v-if="isLogged" to="/contact" exact>Contact Us</router-link>
                 </li>
             </ul>
