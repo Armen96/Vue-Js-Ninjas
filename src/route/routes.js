@@ -5,6 +5,7 @@ import Dashboard from '../components/pages/Dashboard';
 import Profile from '../components/pages/Profile';
 import Login from '../components/pages/Login';
 import Register from '../components/pages/Register';
+import Company from '../components/pages/Company';
 import PageNotFound from '../components/layouts/PageNotFound';
 
 export const routes = [
@@ -22,6 +23,10 @@ export const routes = [
     },
     {
         path: '/contact', component: Contact,
+        meta: {auth: true}
+    },
+    {
+        path: '/company', component: Company,
         meta: {auth: true}
     },
     {
